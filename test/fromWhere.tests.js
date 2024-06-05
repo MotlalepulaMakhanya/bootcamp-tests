@@ -1,8 +1,14 @@
 describe('fromWhere Function test', function () {
-    it('Function that takes a car registration number as a parameter and returns the town the car is from', function () {
-        assert.equal(2, 2);
+    it('return Bellville for registration number starting with CY', function () {
+        assert.equal(fromWhere('CY 123'), 'Bellville');
+    });
 
-        assert.deepEqual([2, 2], [2, 2]);
+    it('sreturn Paarl for registration number starting with CJ', function () {
+        assert.equal(fromWhere('CJ 123'), 'Paarl');
+    });
+
+    it('return Cape Town for registration number starting with CA', function () {
+        assert.equal(fromWhere('CA 123'), 'Cape Town');
     });
 
 });

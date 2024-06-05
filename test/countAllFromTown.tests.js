@@ -1,8 +1,17 @@
-describe('countAllFromTown Function test' , function(){
-    it('Function that takes a parameter string with registration numbers separated with commas and returns the number of registration numbers in the string for Town' , function(){
-        assert.equal(2,2);
-
-        assert.deepEqual([2,2],[2,2]);
+describe('countAllFromTown Function test', function() {
+    it('count multiple registration numbers from the specified town', function() {
+        const regNumbers = 'CA1234,CY5678,CJ9012,CJ3456';
+        const town = 'CJ';
+        const result = countAllFromTown(regNumbers, town);
+        const expected = 2;
+        assert.equal(result, expected);
     });
 
+    it('count a single registration number from the specified town', function() {
+        const regNumbers = 'CJ9012';
+        const town = 'CJ';
+        const result = countAllFromTown(regNumbers, town);
+        const expected = 1;
+        assert.equal(result, expected);
+    });
 });

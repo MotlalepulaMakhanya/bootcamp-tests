@@ -1,8 +1,13 @@
-describe('isFromBellvile test', function () {
-    it('Function for number plates registration', function () {
-        assert.equal(2, 2);
-
-        assert.deepEqual([2, 2], [2, 2]);
+describe('isFromBellville test', function () {
+    it('return true for registration number starting with CY', function () {
+        assert.equal(isFromBellville('CY12345'), true);
     });
 
+    it('return false for registration number not starting with CY', function () {
+        assert.equal(isFromBellville('CJ12345'), false);
+    });
+
+    it('return false for an empty string', function () {
+        assert.equal(isFromBellville(''), false);
+    });
 });

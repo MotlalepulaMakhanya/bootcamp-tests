@@ -1,8 +1,14 @@
 describe('isWeekday test', function () {
-    it('Function for is a day a weekday or not', function () {
-        assert.equal(2, 2);
-
-        assert.deepEqual([2, 2], [2, 2]);
+    it('return true for a weekday', function () {
+        assert.equal(isWeekday('Monday'), true);
     });
 
+    it('return false for a weekend day', function () {
+        assert.equal(isWeekday('Saturday'), false);
+    });
+
+    it('return false for an invalid input', function () {
+        assert.equal(isWeekday(''), false);
+        assert.equal(isWeekday('Funday'), false);
+    });
 });

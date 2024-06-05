@@ -1,8 +1,14 @@
-describe('mostProfitableDepartment Function test', function () {
-    it('two functions called mostProfitableDepartment, mostProfitableDay to help them to answer these question', function () {
-        assert.equal(2, 2);
-
-        assert.deepEqual([2, 2], [2, 2]);
+describe('mostProfitableDay Function test', function () {
+    it('find the most profitable day', function () {
+        const result = mostProfitableDay(salesData);
+        assert.equal(result, 'Thursday');
     });
-
+    it('handle different aspects in sales', function () {
+        const data = [
+            { department: 'hardware', sales: 5000, day: 'Monday' },
+            { department: 'outdoor', sales: 5000, day: 'Monday' },
+        ];
+        const result = mostProfitableDay(data);
+        assert.ok(result === 'Monday' || result === 'Tuesday');
+    });
 });

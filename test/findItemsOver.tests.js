@@ -1,8 +1,36 @@
-describe('findItemsOver Function test' , function(){
-    it('Function  that takes a list of objects each with a name and qty attribute. And also a second parameter which is a threshold for the quantity of items available. The function should return products that have quantity higher than the threshold.' , function(){
-        assert.equal(2,2);
-
-        assert.deepEqual([2,2],[2,2]);
+describe('findItemsOver Function test', function () {
+    it('return items with large quantities', function () {
+        const items = [
+            { name: 'apples', qty: 10 },
+            { name: 'bananas', qty: 25 },
+            { name: 'oranges', qty: 30 },
+        ];
+        const threshold = 20;
+        const result = findItemsOver(items, threshold);
+        const expected = [
+            { name: 'bananas', qty: 25 },
+            { name: 'oranges', qty: 30 },
+        ];
+        assert.deepEqual(result, expected);
     });
 
+    it('return an empty array if no items have quantities which are too large', function () {
+        const items = [
+            { name: 'apples', qty: 10 },
+            { name: 'bananas', qty: 15 },
+            { name: 'oranges', qty: 20 },
+        ];
+        const threshold = 25;
+        const result = findItemsOver(items, threshold);
+        const expected = [];
+        assert.deepEqual(result, expected);
+    });
+
+    it('return an empty array for an empty input list', function () {
+        const items = [];
+        const threshold = 20;
+        const result = findItemsOver(items, threshold);
+        const expected = [];
+        assert.deepEqual(result, expected);
+    });
 });
